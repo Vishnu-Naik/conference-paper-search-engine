@@ -75,7 +75,10 @@ class ConferencePaper(BaseModel):
                                        description="List of main keywords representing the content of the paper")
     match_score: float = Field(..., title="Match score",
                                description="Score of the match between the query and the paper")
-    
+
+@app.get("/")
+async def root():
+    return {"message": "The API server is running."}
 
 @app.get("/api/search")
 async def search_abstract(
