@@ -23,7 +23,7 @@ function Search() {
         setSearchParams(searchParams);
         RetrieveDocService.getDocs(searchParams).then((response: any) => {
             response.data.map((item: any) => {
-                item['match_score'] = Math.floor(item['match_score'] * 100)
+                return item['match_score'] = Math.floor(item['match_score'] * 100)
             });
             setSearchResults(response?.data);
             setSearchFlag(true);
